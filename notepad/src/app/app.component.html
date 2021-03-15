@@ -1,0 +1,11 @@
+<div class="page">
+  <form [formGroup]="saveNote" (ngSubmit)="onSubmit()" *ngIf="showForm">
+  <textarea rows="10" cols="30" formControlName="notes" placeholder="start typing.." required></textarea>
+  <button type="submit" [disabled]="!saveNote.valid">Save</button>
+  </form>
+
+  <div *ngIf="!showForm">
+    <p>{{myNotes?.notes}}</p>
+    <button type="submit" (click)="editNote()">Edit</button>
+  </div>
+</div>
